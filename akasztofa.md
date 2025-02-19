@@ -249,8 +249,9 @@ Ha a feladvány teljesen kitalálásra került (a FeladvanyText és a kivalaszto
 Ha a betű nincs a szóban, növeli a hibák számát, és frissíti az információkat.
 Ha a hibák száma eléri a maximális értéket (11), akkor a játékos elveszíti a játékot, és az alkalmazás új játékot indít.
 <details>
-    <summary>Nyiss le az xaml forrásért!</summary>
+
 </details> 
+    <summary>Nyiss le az xaml forrásért!</summary>
 
 ```C#
 <Window x:Class="WpfApp1.MainWindow"
