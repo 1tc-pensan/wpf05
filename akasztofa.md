@@ -272,36 +272,92 @@ private void Restart()
 <summary>Nyiss le az xaml forrásért!</summary> 
 
 ```C#
-<Window x:Class="Wpf_1_TicTacToe.MainWindow"
+<Window x:Class="WpfApp1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Wpf_1_TicTacToe"
+        xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="TicTacToe" Height="600" Width="600">
-        <Grid>
+        Title="MainWindow" Height="750" Width="750">
+    <Grid Background="Gainsboro">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="PuzzleText" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+
+        <Grid x:Name="LetterButtonsGrid" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <Button x:Name="Button00" Grid.Row="0" Grid.Column="0" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button01" Grid.Row="0" Grid.Column="1" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button02" Grid.Row="0" Grid.Column="2" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button10" Grid.Row="1" Grid.Column="0" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button11" Grid.Row="1" Grid.Column="1" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button12" Grid.Row="1" Grid.Column="2" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button20" Grid.Row="2" Grid.Column="0" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button21" Grid.Row="2" Grid.Column="1" Click="Button_Click" FontSize="100"/>
-            <Button x:Name="Button22" Grid.Row="2" Grid.Column="2" Click="Button_Click" FontSize="100"/>
+
+            <Button Content="A" Grid.Row="0" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Á" Grid.Row="0" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="B" Grid.Row="0" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="C" Grid.Row="0" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="D" Grid.Row="0" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="E" Grid.Row="0" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="É" Grid.Row="0" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="F" Grid.Row="1" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="G" Grid.Row="1" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="H" Grid.Row="1" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="I" Grid.Row="1" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Í" Grid.Row="1" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="J" Grid.Row="1" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="K" Grid.Row="1" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="L" Grid.Row="2" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="M" Grid.Row="2" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="N" Grid.Row="2" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="O" Grid.Row="2" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ó" Grid.Row="2" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ö" Grid.Row="2" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ő" Grid.Row="2" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="P" Grid.Row="3" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Q" Grid.Row="3" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="R" Grid.Row="3" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="S" Grid.Row="3" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="T" Grid.Row="3" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="U" Grid.Row="3" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ú" Grid.Row="3" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="Ü" Grid.Row="4" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ű" Grid.Row="4" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="V" Grid.Row="4" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="W" Grid.Row="4" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="X" Grid.Row="4" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Y" Grid.Row="4" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Z" Grid.Row="4" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
         </Grid>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Text="Akasztófa Játék"/>
+        <TextBlock x:Name="InfoText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        <WrapPanel x:Name="LetterButtonsPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+
+    </Grid>
 </Window>
+
 
 ```
 </details>
@@ -312,6 +368,7 @@ private void Restart()
 ```C#
 using System.Text;
 using System.Windows;
+using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -321,95 +378,121 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wpf_1_TicTacToe
+namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int[,] amoba = new int[3, 3] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
-        private bool player1 = true;
+        private string selectedWord;
+        private List<char> guessedLetters = new List<char>();
+        private int mistakeCount = 0;
+        private const int MaxMistakes = 11;
+
         public MainWindow()
         {
             InitializeComponent();
+            NewGame();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void NewGame()
         {
-            if (sender is Button button && button.Content == null)
+            LoadWords();
+            guessedLetters.Clear();
+            mistakeCount = 0;
+            UpdatePuzzle();
+            UpdateInfo();
+
+            foreach (object element in LetterButtonsGrid.Children)
             {
-                //button.Content = player1 ? "x" : "o";
-                //player1 = !player1;
-                int row = Grid.GetRow(button);
-                int col = Grid.GetColumn(button);
-                if (player1)
+                if (element is Button button)
                 {
-                    button.Content = "x";
-                    player1 = false;
-                    amoba[row, col] = 1;
+                    button.IsEnabled = true;
+                }
+            }
+        }
+
+        private void LoadWords()
+        {
+            try
+            {
+                List<string> words = new List<string>();
+                using (StreamReader sr = new StreamReader("words.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (line.Length <= 20 && !line.Contains(" ") && !line.Contains("-"))
+                        {
+                            words.Add(line.ToUpper());
+                        }
+                    }
+                }
+
+                if (words.Count == 0)
+                {
+                    MessageBox.Show("No valid words found in the file!");
+                    return;
+                }
+
+                Random random = new Random();
+                selectedWord = words[random.Next(words.Count)];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading the words: {ex.Message}");
+            }
+        }
+
+        private void UpdatePuzzle()
+        {
+            string puzzle = "";
+            foreach (char letter in selectedWord)
+            {
+                puzzle += (guessedLetters.Contains(letter) ? letter.ToString() : "_") + " ";
+            }
+            PuzzleText.Text = puzzle;
+        }
+
+        private void UpdateInfo()
+        {
+            InfoText.Text = $"Mistakes: {mistakeCount} / {MaxMistakes}";
+        }
+
+        private void LetterButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                char letter = button.Content.ToString()[0];
+                button.IsEnabled = false;
+
+                if (selectedWord.Contains(letter))
+                {
+                    guessedLetters.Add(letter);
+                    UpdatePuzzle();
+
+                    if (PuzzleText.Text.Replace(" ", "") == selectedWord)
+                    {
+                        MessageBox.Show("Congratulations, you won! A new game will start.");
+                        NewGame();
+                    }
                 }
                 else
                 {
-                    button.Content= "o";
-                    player1 = true;
-                    amoba[row,col] = 2;
-                }
-                WinnerCheck();
-            }
-        }
-        private void WinnerCheck()
-        {
-            string winner = string.Empty;
-            //columncheck
-            for (int i = 0; i < amoba.GetLength(0); i++)
-            {
-                if (amoba[0,i]!= 0 && amoba[0,i] == amoba[1,i] && amoba[1,i] == amoba[2,i])
-                {
-                    winner = amoba[0, i] == 1 ? "x" : "o";
-                    break;
-                }
-            }
-            //rowcheck
-            for (int i = 0;i < amoba.GetLength(1); i++)
-            {
-                if (amoba[i, 0] != 0 && amoba[i, 0] == amoba[i, 1] && amoba[i, 1] == amoba[i, 2])
-                {
-                    winner = amoba[i, 0] == 1 ? "x" : "o";
-                    break;
-                }
-            }
-            //crosscheck
-            if ((amoba[0,0] != 0 && amoba[0,0] == amoba[1, 1] && amoba[1, 1] == amoba[2, 2]) ||
-                (amoba[0, 2] != 0 && amoba[0, 2] == amoba[1, 1] && amoba[1, 1] == amoba[2, 0]))
-            {
-                winner = amoba[1, 1] == 1 ? "x" : "o";
-            }
-            if (winner != "")
-            {
-                MessageBox.Show(winner);
-                Restart();
-            }
-        }
-        private void Restart()
-        {
-            Button00.Content = null;
-            Button01.Content = null;
-            Button02.Content = null;
-            Button10.Content = null;
-            Button11.Content = null;
-            Button12.Content = null;
-            Button00.Content = null;
-            Button21.Content = null;
-            Button22.Content = null;
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    amoba[i, j] = 0;
+                    mistakeCount++;
+                    UpdateInfo();
+
+                    if (mistakeCount >= MaxMistakes)
+                    {
+                        MessageBox.Show($"You lost! The word was: {selectedWord}. A new game will start.");
+                        NewGame();
+                    }
                 }
             }
         }
     }
 }
+
 ```
 </details>
