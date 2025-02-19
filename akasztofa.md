@@ -7,20 +7,6 @@ betűkre van felhasználva.A 4 grid meg a jaték nevét tartalmazza.
 
 Működés:Van egy random generált szó ami ki kell találni.
 
-1. Ablak és elrendezés (Window, Grid):
-
-    Az alkalmazás egy Window (ablak) elemben található, amely 750x750 pixel méretű.
-    Az ablak tartalmaz egy Grid elrendezést, amely 2 oszlopot és 2 sort definiál. Az első sor és oszlop tartalmazza a játékfeladatot, míg a második sor és oszlop a betűgombokat és a játék információit.
-2. TextBlock - Feladvány (FeladvanyText):
-    A feladvány, vagyis a titkos szó, a FeladvanyText TextBlock-ban jelenik meg. A játékosnak itt kell megpróbálnia kitalálni a szót a betűk beírásával.
-    
-3. Betűgombok (BetuGombokGrid):
-    A második sorban található egy 7x5-ös elrendezésű gombmátrix. Minden gomb egy-egy betűt képvisel (pl. "A", "B", "C", stb.). Ezek a gombok a játékos tippjeit fogják reprezentálni. Minden gombhoz tartozik egy Click eseménykezelő, ami a betűk megnyomásakor aktiválódik.
-4. InfoText:
-    A InfoText TextBlock a játék állapotát mutatja: hány hibát követett el a játékos és hány hibát enged meg a játék.
-
-5. WrapPanel - BetuGombokPanel:
-    Bár a kód tartalmaz egy BetuGombokPanel elemet, jelenleg nem használjuk az elrendezést, mert a betűgombokat közvetlenül a BetuGombokGrid-ben definiáljuk.
 
 
 ```C#
@@ -111,6 +97,21 @@ Működés:Van egy random generált szó ami ki kell találni.
 </Window>
 
 ```
+
+1. Ablak és elrendezés (Window, Grid):
+
+    Az alkalmazás egy Window (ablak) elemben található, amely 750x750 pixel méretű.
+    Az ablak tartalmaz egy Grid elrendezést, amely 2 oszlopot és 2 sort definiál. Az első sor és oszlop tartalmazza a játékfeladatot, míg a második sor és oszlop a betűgombokat és a játék információit.
+2. TextBlock - Feladvány (FeladvanyText):
+    A feladvány, vagyis a titkos szó, a FeladvanyText TextBlock-ban jelenik meg. A játékosnak itt kell megpróbálnia kitalálni a szót a betűk beírásával.
+    
+3. Betűgombok (BetuGombokGrid):
+    A második sorban található egy 7x5-ös elrendezésű gombmátrix. Minden gomb egy-egy betűt képvisel (pl. "A", "B", "C", stb.). Ezek a gombok a játékos tippjeit fogják reprezentálni. Minden gombhoz tartozik egy Click eseménykezelő, ami a betűk megnyomásakor aktiválódik.
+4. InfoText:
+    A InfoText TextBlock a játék állapotát mutatja: hány hibát követett el a játékos és hány hibát enged meg a játék.
+
+5. WrapPanel - BetuGombokPanel:
+    Bár a kód tartalmaz egy BetuGombokPanel elemet, jelenleg nem használjuk az elrendezést, mert a betűgombokat közvetlenül a BetuGombokGrid-ben definiáljuk.
 1. Grid: A Grid konténer két fő oszlopot és két fő sort tartalmaz. Az egyik oszlopban jelenik meg a feladvány (kitalálandó szó), a másikban pedig az információs szövegek.
 2. FeladvanyText: A TextBlock elem, ami a kitalálandó szót jeleníti meg. A betűk helyett "_" (aláhúzás) jelenik meg, amíg nem lettek kitalálva.
 3. BetuGombokGrid: Egy Grid elrendezés, amely betűgombokat tartalmaz. A betűgombok (A-Z, Á-Ű) elhelyezése oszlopokban és sorokban történik.
