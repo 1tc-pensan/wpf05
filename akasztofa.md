@@ -181,6 +181,7 @@ private void UjJatek()
 ```
 
 9. Feladvány frissítése (FrissitFeladvany):
+    A FrissitFeladvany metódus frissíti a feladványt, vagyis megjeleníti a helyes betűket és aláhúzásokat (például _), hogy a játékos lássa, hol tart a kitalálásban.
 
 ```C#
 private void FrissitFeladvany()
@@ -195,8 +196,8 @@ private void FrissitFeladvany()
 
 ```
 
-10. A FrissitFeladvany metódus frissíti a feladványt, vagyis megjeleníti a helyes betűket és aláhúzásokat (például _), hogy a játékos lássa, hol tart a kitalálásban.
-Információ frissítése (FrissitInfo):
+10. Információ frissítése (FrissitInfo):
+    A FrissitInfo metódus frissíti az információs szöveget, amely megjeleníti a hibák számát.
 
 ```C#
 private void FrissitInfo()
@@ -206,8 +207,11 @@ private void FrissitInfo()
 
 ```
 
-11. A FrissitInfo metódus frissíti az információs szöveget, amely megjeleníti a hibák számát.
-Betűgomb kattintásának kezelése (BetuGomb_Click):
+11. Betűgomb kattintásának kezelése (BetuGomb_Click):
+    Amikor a játékos rákattint egy betűgombra, a BetuGomb_Click metódus aktiválódik:
+    A gomb tartalmából kinyeri a betűt.
+    Letiltja a gombot, hogy a játékos ne tudja újra megnyomni.
+
 ```C#
 private void BetuGomb_Click(object sender, RoutedEventArgs e)
         {
@@ -241,13 +245,6 @@ private void BetuGomb_Click(object sender, RoutedEventArgs e)
             }
         }
 ```
-Amikor a játékos rákattint egy betűgombra, a BetuGomb_Click metódus aktiválódik:
-A gomb tartalmából kinyeri a betűt.
-Letiltja a gombot, hogy a játékos ne tudja újra megnyomni.
-Ha a kitalált betű szerepel a titkos szóban, hozzáadja azt a tippeltBetuk listához, és frissíti a feladványt.
-Ha a feladvány teljesen kitalálásra került (a FeladvanyText és a kivalasztottSzo megegyeznek), gratulál a játékosnak, és új játékot indít.
-Ha a betű nincs a szóban, növeli a hibák számát, és frissíti az információkat.
-Ha a hibák száma eléri a maximális értéket (11), akkor a játékos elveszíti a játékot, és az alkalmazás új játékot indít.
 <details>
     <summary>Nyiss le az xaml forrásért!</summary>
 
