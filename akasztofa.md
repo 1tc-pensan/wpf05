@@ -100,10 +100,10 @@ Működés:Van egy random generált szó ami ki kell találni.
 </Window>
 
 ```
-1.Grid: A Grid konténer két fő oszlopot és két fő sort tartalmaz. Az egyik oszlopban jelenik meg a feladvány (kitalálandó szó), a másikban pedig az információs szövegek.
-2.FeladvanyText: A TextBlock elem, ami a kitalálandó szót jeleníti meg. A betűk helyett "_" (aláhúzás) jelenik meg, amíg nem lettek kitalálva.
-3.BetuGombokGrid: Egy Grid elrendezés, amely betűgombokat tartalmaz. A betűgombok (A-Z, Á-Ű) elhelyezése oszlopokban és sorokban történik.
-4.InfoText: A hibák számát jelző TextBlock elem, amely mutatja, hogy hány hibát követtek el a játék során.
+4. Grid: A Grid konténer két fő oszlopot és két fő sort tartalmaz. Az egyik oszlopban jelenik meg a feladvány (kitalálandó szó), a másikban pedig az információs szövegek.
+5. FeladvanyText: A TextBlock elem, ami a kitalálandó szót jeleníti meg. A betűk helyett "_" (aláhúzás) jelenik meg, amíg nem lettek kitalálva.
+6. BetuGombokGrid: Egy Grid elrendezés, amely betűgombokat tartalmaz. A betűgombok (A-Z, Á-Ű) elhelyezése oszlopokban és sorokban történik.
+7. InfoText: A hibák számát jelző TextBlock elem, amely mutatja, hogy hány hibát követtek el a játék során.
 
 6. Felveszünk egy amőba nevű mátrixot, és egy player1 boolean változót (ez majd a későbbiekben fog kelleni)
 
