@@ -121,22 +121,22 @@ Működés:Van egy random generált szó ami ki kell találni.
 
 7. Játék indítása (UjJatek):
 
-    Az UjJatek metódus inicializálja a játékot: betölti a szavakat, törli az előző játék állapotát (tippek, hibák), és frissíti a feladványt.
+    Az NewGame metódus inicializálja a játékot: betölti a szavakat, törli az előző játék állapotát (tippek, hibák), és frissíti a feladványt.
     Az összes betűgombot engedélyezi újra, hogy a játékos újra tippelhessen.
 ```C#
-private void UjJatek()
+pprivate void NewGame()
         {
-            BetoltSzavak();
-            tippeltBetuk.Clear();
-            hibakSzama = 0;
-            FrissitFeladvany();
-            FrissitInfo();
+            LoadWords();
+            guessedLetters.Clear();
+            mistakeCount = 0;
+            UpdatePuzzle();
+            UpdateInfo();
 
-            foreach (object elem in BetuGombokGrid.Children)
+            foreach (object element in LetterButtonsGrid.Children)
             {
-                if (elem is Button gomb)
+                if (element is Button button)
                 {
-                    gomb.IsEnabled = true;
+                    button.IsEnabled = true;
                 }
             }
         }
@@ -147,62 +147,62 @@ private void UjJatek()
     A program véletlenszerűen kiválaszt egy szót a listából, amelyet a játékosnak ki kell találnia.
 
 ```C#
-        private void BetoltSzavak()
+        private void LoadWords()
         {
             try
             {
-                List<string> szavak = new List<string>();
+                List<string> words = new List<string>();
                 using (StreamReader sr = new StreamReader("words.txt"))
                 {
-                    string sor;
-                    while ((sor = sr.ReadLine()) != null)
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        if (sor.Length <= 20 && !sor.Contains(" ") && !sor.Contains("-"))
+                        if (line.Length <= 20 && !line.Contains(" ") && !line.Contains("-"))
                         {
-                            szavak.Add(sor.ToUpper());
+                            words.Add(line.ToUpper());
                         }
                     }
                 }
 
-                if (szavak.Count == 0)
+                if (words.Count == 0)
                 {
-                    MessageBox.Show("Nincsenek érvényes szavak a fájlban!");
+                    MessageBox.Show("No valid words found in the file!");
                     return;
                 }
 
                 Random random = new Random();
-                kivalasztottSzo = szavak[random.Next(szavak.Count)];
+                selectedWord = words[random.Next(words.Count)];
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hiba történt a szavak betöltése közben: {ex.Message}");
+                MessageBox.Show($"An error occurred while loading the words: {ex.Message}");
             }
         }
 ```
 
-9. Feladvány frissítése (FrissitFeladvany):
-    A FrissitFeladvany metódus frissíti a feladványt, vagyis megjeleníti a helyes betűket és aláhúzásokat (például _), hogy a játékos lássa, hol tart a kitalálásban.
+9. Feladvány frissítése (UpdatePuzzle):
+    A UpdatePuzzle metódus frissíti a feladványt, vagyis megjeleníti a helyes betűket és aláhúzásokat (például _), hogy a játékos lássa, hol tart a kitalálásban.
 
 ```C#
-private void FrissitFeladvany()
+private void UpdatePuzzle()
         {
-            string feladvany = "";
-            foreach (char betu in kivalasztottSzo)
+            string puzzle = "";
+            foreach (char letter in selectedWord)
             {
-                feladvany += (tippeltBetuk.Contains(betu) ? betu.ToString() : "_") + " ";
+                puzzle += (guessedLetters.Contains(letter) ? letter.ToString() : "_") + " ";
             }
-            FeladvanyText.Text = feladvany;
+            PuzzleText.Text = puzzle;
         }
 
 ```
 
-10. Információ frissítése (FrissitInfo):
+10. Információ frissítése (UpdateInfo):
     A FrissitInfo metódus frissíti az információs szöveget, amely megjeleníti a hibák számát.
 
 ```C#
-private void FrissitInfo()
+private void UpdateInfo()
         {
-            InfoText.Text = $"Hibák száma: {hibakSzama} / {MaxHibak}";
+            InfoText.Text = $"Mistakes: {mistakeCount} / {MaxMistakes}";
         }
 
 ```
