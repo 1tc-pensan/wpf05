@@ -241,9 +241,16 @@ private void BetuGomb_Click(object sender, RoutedEventArgs e)
             }
         }
 ```
-
-
-<summary>Nyiss le az xaml forrásért!</summary> 
+Amikor a játékos rákattint egy betűgombra, a BetuGomb_Click metódus aktiválódik:
+A gomb tartalmából kinyeri a betűt.
+Letiltja a gombot, hogy a játékos ne tudja újra megnyomni.
+Ha a kitalált betű szerepel a titkos szóban, hozzáadja azt a tippeltBetuk listához, és frissíti a feladványt.
+Ha a feladvány teljesen kitalálásra került (a FeladvanyText és a kivalasztottSzo megegyeznek), gratulál a játékosnak, és új játékot indít.
+Ha a betű nincs a szóban, növeli a hibák számát, és frissíti az információkat.
+Ha a hibák száma eléri a maximális értéket (11), akkor a játékos elveszíti a játékot, és az alkalmazás új játékot indít.
+<details>
+    <summary>Nyiss le az xaml forrásért!</summary>
+</details> 
 
 ```C#
 <Window x:Class="WpfApp1.MainWindow"
