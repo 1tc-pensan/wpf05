@@ -197,7 +197,7 @@ private void UpdatePuzzle()
 ```
 
 10. Információ frissítése (UpdateInfo):
-    A FrissitInfo metódus frissíti az információs szöveget, amely megjeleníti a hibák számát.
+    A UpdateInfo metódus frissíti az információs szöveget, amely megjeleníti a hibák számát.
 
 ```C#
 private void UpdateInfo()
