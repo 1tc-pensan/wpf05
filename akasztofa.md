@@ -1,46 +1,109 @@
-# Grid: TicTacToe
+# Grid: Akasztofa
 ## Feladat
-Solution neve: **Wpf_1_TicTacToe**
+Solution neve: **WpfApp1**
 
-Projekt leírása: hozz létre egy 3x3-as Grid-et, aminek minden cellájába egy-egy (összesen 9db) felirat nélküli, strech-elt Button-t helyezz el
+Projekt leírása:Csinálni kell 2 gridet egyik az a fő grid a másik meg a betűk kiírásához kell.A fő gridet felosztjuk 2x2-re.Az 1 első gridet felhasználjuk a adott szó hosszának megjelenítésére.A 2 gridet a hibák számának megjelenítésére van felhasználva.A 3 griden belűl van még egy grid ami a 
+betűkre van felhasználva.A 4 grid meg a jaték nevét tartalmazza.
 
-Működés: Minden Button-ra kattintáskor egy X-et vagy O-t helyezzünk bele
+Működés:Van egy random generált szó ami ki kell találni.
 
-1. Window méretét beállítjuk 600x600-asra
-2. Grid: A Grid-et 3x3-asra osztjuk, hogy a Button-ok egyenletesen elhelyezkedjenek.
-3. Button-ok: Minden Button-t elhelyeztünk a megfelelő cella (Row, Column) pozícióba.
-4. A buttonok property-jében beállítjuk a strech-elést mindkét irányban (margin 0) és a "Name"-t 5. beállítjuk a cella pozíciójának megfelelően
-5. A Click eseményre a "Button_Click" eseménykezelőt állítjuk be minden Buttonra
+1. Window méretét beállítjuk 750x750-esre
+2. Grid: A Grid konténer két fő oszlopot és két fő sort tartalmaz. Az egyik oszlopban jelenik meg a feladvány (kitalálandó szó), a másikban pedig az információs szövegek.
+3. A Click eseményre a "BetuGomb_Click" eseménykezelőt állítjuk be minden Buttonra
+
 
 ```C#
-<Window x:Class="Wpf_1_TetrisDesigner1.MainWindow"
+<Window x:Class="WpfApp1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600" Width="600">
-    <Grid x:Name="DesignerGrid">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="750">
+    <Grid Background="Gainsboro">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button x:Name="Button00" Grid.Column="0" Grid.Row="0" Click="Button_Click"/>
-        <Button x:Name="Button01" Grid.Column="1" Grid.Row="0" Click="Button_Click"/>
-        <Button x:Name="Button02" Grid.Column="2" Grid.Row="0" Click="Button_Click"/>
-        <Button x:Name="Button10" Grid.Column="0" Grid.Row="1" Click="Button_Click"/>
-        <Button x:Name="Button11" Grid.Column="1" Grid.Row="1" Click="Button_Click"/>
-        <Button x:Name="Button12" Grid.Column="2" Grid.Row="1" Click="Button_Click"/>
-        <Button x:Name="Button20" Grid.Column="0" Grid.Row="2" Click="Button_Click"/>
-        <Button x:Name="Button21" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
-        <Button x:Name="Button22" Grid.Column="2" Grid.Row="2" Click="Button_Click"/>
+        <TextBlock x:Name="PuzzleText" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+
+        <Grid x:Name="LetterButtonsGrid" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Button Content="A" Grid.Row="0" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Á" Grid.Row="0" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="B" Grid.Row="0" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="C" Grid.Row="0" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="D" Grid.Row="0" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="E" Grid.Row="0" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="É" Grid.Row="0" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="F" Grid.Row="1" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="G" Grid.Row="1" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="H" Grid.Row="1" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="I" Grid.Row="1" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Í" Grid.Row="1" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="J" Grid.Row="1" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="K" Grid.Row="1" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="L" Grid.Row="2" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="M" Grid.Row="2" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="N" Grid.Row="2" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="O" Grid.Row="2" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ó" Grid.Row="2" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ö" Grid.Row="2" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ő" Grid.Row="2" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="P" Grid.Row="3" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Q" Grid.Row="3" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="R" Grid.Row="3" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="S" Grid.Row="3" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="T" Grid.Row="3" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="U" Grid.Row="3" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ú" Grid.Row="3" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+
+            <Button Content="Ü" Grid.Row="4" Grid.Column="0" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Ű" Grid.Row="4" Grid.Column="1" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="V" Grid.Row="4" Grid.Column="2" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="W" Grid.Row="4" Grid.Column="3" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="X" Grid.Row="4" Grid.Column="4" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Y" Grid.Row="4" Grid.Column="5" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+            <Button Content="Z" Grid.Row="4" Grid.Column="6" Margin="1" Width="40" Height="40" Click="LetterButton_Click" />
+        </Grid>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Text="Akasztófa Játék"/>
+        <TextBlock x:Name="InfoText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        <WrapPanel x:Name="LetterButtonsPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+
     </Grid>
 </Window>
+
 ```
+1.Grid: A Grid konténer két fő oszlopot és két fő sort tartalmaz. Az egyik oszlopban jelenik meg a feladvány (kitalálandó szó), a másikban pedig az információs szövegek.
+2.FeladvanyText: A TextBlock elem, ami a kitalálandó szót jeleníti meg. A betűk helyett "_" (aláhúzás) jelenik meg, amíg nem lettek kitalálva.
+3.BetuGombokGrid: Egy Grid elrendezés, amely betűgombokat tartalmaz. A betűgombok (A-Z, Á-Ű) elhelyezése oszlopokban és sorokban történik.
+4.InfoText: A hibák számát jelző TextBlock elem, amely mutatja, hogy hány hibát követtek el a játék során.
 
 6. Felveszünk egy amőba nevű mátrixot, és egy player1 boolean változót (ez majd a későbbiekben fog kelleni)
 
